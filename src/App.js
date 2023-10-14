@@ -3,7 +3,7 @@ import React, {useReducer} from 'react';
 const reducer = (state, action) => {
     switch (action.type) {
         case 'INC':
-            return {...state, count1: state.count1 ++}
+            return {...state, count1: state.count1++}
         case 'DEC':
             return {...state, count1: state.count1 --}
         case 'RES':
