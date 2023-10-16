@@ -6,6 +6,8 @@ import {Link, Route, Routes} from "react-router-dom";
 import {Home} from "./components/home/Home";
 import './index.css';
 
+import CatDogsPage from "./components/CatDogsPage";
+
 const App = () => {
     return (
         <div>
@@ -21,6 +23,7 @@ const App = () => {
                 <Route path={'posts'} element={<Posts/>}></Route>
                 <Route path={'comments'} element={<Comments/>}></Route>
                 <Route path={'cars'} element={<Cars/>}></Route>
+                <Route path={'cat&dog'} element={<CatDogsPage/>}/>
             </Routes>
         </div>
     );
