@@ -1,5 +1,5 @@
 import React from 'react';
-import Cars from "./Components/Cars";
+import Cars from "./Сomponents/Cars";
 
 const App = () => {
     return (
