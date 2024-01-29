@@ -1,10 +1,11 @@
 import React from 'react';
-import {Posts} from "./Components/Posts";
+import Home from "./Components/Home/Home";
 
 const App = () => {
+
     return (
         <div>
-            <Posts/>
+            <Home/>
         </div>
     );
 };

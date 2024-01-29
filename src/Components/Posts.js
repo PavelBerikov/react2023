@@ -5,7 +5,9 @@ import {Post} from "./Post";
 class Posts extends Component{
     constructor(props) {
         super(props);
-        this.state.posts = []
+        this.state = {
+            posts: []
+        }
     }
     componentDidMount() {
         postsService.getAll().then(value => value.data).then(value => this.setState({posts: value}))

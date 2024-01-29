@@ -11,6 +11,7 @@ class Post extends Component{
                 <div>ID - {id}</div>
                 <div>Title - {title}</div>
                 <div>{body}</div>
+                <hr/>
             </div>
         )
     }
