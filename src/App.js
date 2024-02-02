@@ -1,24 +1,26 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
+import {decrement, increment, reset} from "./redux";
+
 
 const App = () => {
     const store = useSelector(state => state);
     const dispatch = useDispatch();
-    const increment = () => {
-        dispatch({type: 'INC', payload: 2})
+    const onIncrement = () => {
+        dispatch(increment())
     };
-    const decrement = () => {
-        dispatch({type: 'DEC', payload: 3})
+    const onDecrement = () => {
+        dispatch(decrement())
     };
-    const reset = () => {
-        dispatch({type: 'RES'})
+    const onReset = () => {
+        dispatch(reset())
     };
     return (
         <div>
             <h2>{store}</h2>
-            <button onClick={increment}>increment</button>
-            <button onClick={decrement}>decrement</button>
-            <button onClick={reset}>reset</button>
+            <button onClick={onIncrement}>increment</button>
+            <button onClick={onDecrement}>decrement</button>
+            <button onClick={onReset}>reset</button>
         </div>
     );
 };
