@@ -3,11 +3,27 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {store} from "./redux";
 import {Provider} from "react-redux";
+import {createStore} from "redux";
 
+let initState = {
+    isLoading: false,
+    cars: []
+};
+const carReducer = (state = initState, action) => {
+    switch (action.type){
+        case 'START_LOADING':
+            return {...state, isLoading: true}
+        case 'SET_CARS':
+            return {...state, isLoading: false, cars: [...action.payload]}
+        case 'SAVE_CAR':
+            return {...state, cars: state.cars}
+        default:
+            return state
+    }
+};
 
-
+let store = createStore(carReducer);
 
 
 
