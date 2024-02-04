@@ -1,9 +1,14 @@
 import React from 'react';
+import {First, Header, Second} from "./Components";
+
 
 const App = () => {
     return (
         <div>
-            app
+            <Header/>
+            <First/>
+            <Second/>
+
         </div>
     );
 };
