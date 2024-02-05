@@ -8,7 +8,10 @@ import {useSearchParams} from "react-router-dom";
 const Characters = () => {
     const dispatch = useDispatch();
     const {characters} = useSelector(state => state.characters);
-    const [query, setQuery] = useSearchParams({page: '1'});
+    const [query, setQuery] = useSearchParams();
+    useEffect(() => {
+        setQuery(prev => ({...prev, page: '1'}))
+    }, [])
     useEffect(() => {
         charactersService.gerAll(+query.get('page'))
             .then(value => value.data).then(value => dispatch(characterActions.setCharacters(value)))
