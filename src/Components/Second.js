@@ -8,7 +8,7 @@ const Second = () => {
         <div>
             <button onClick={() => dispatch(count2Actions.inc())}>inc</button>
             <button onClick={() => dispatch(count2Actions.dec())}>dec</button>
-            <button onClick={() => dispatch(count2Actions.res())}>res</button>
+            <button onClick={() => dispatch(count2Actions.res(111))}>res</button>
 
         </div>
     );
