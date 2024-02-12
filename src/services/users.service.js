@@ -1,8 +1,8 @@
-import {axiosService} from "./axios.service";
+import {axiosUsersService} from "./axios.service";
 import {urls} from "../constants";
 
 const usersService = {
-    getAll: () => axiosService.get(urls.users)
+    create: (user) => axiosUsersService.post(urls.users, user)
 };
 
 export {

@@ -1,8 +1,9 @@
 import axios from "axios";
-import {baseURL} from "../constants";
+import {baseUsersURL, baseCarsURL} from "../constants";
 
-const axiosService = axios.create({baseURL});
+const axiosUsersService = axios.create({baseURL: baseUsersURL});
+const axiosCarsService = axios.create({baseURL: baseCarsURL});
 
 export {
-    axiosService
+    axiosUsersService, axiosCarsService
 };

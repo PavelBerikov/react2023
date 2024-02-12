@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {usersService} from "../../services";
 
 let initialState = {
     users: []
@@ -7,8 +8,10 @@ const slice = createSlice({
     name: 'userSlice',
     initialState,
     reducers:{
-        setAllUsers: (state, action) => {
-            const {id, name, username, email} = action.payload
+        createNewUser: async (state, actions) => {
+            const data = await usersService.create(actions.payload);
+            console.log(data.data)
+
         }
     }
 });
