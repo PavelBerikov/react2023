@@ -2,7 +2,8 @@ import {createSlice} from "@reduxjs/toolkit";
 import {carService} from "../../services";
 
 let initialState = {
-    cars: []
+    cars: [],
+    carForUpdate: null
 };
 const slice = createSlice({
     name: 'carSlice',
@@ -11,11 +12,19 @@ const slice = createSlice({
         setCars: (state, actions) => {
             state.cars = actions.payload
         },
-        createCar: (state, actions) => {
-            carService.create(actions.payload)
+        createNewCar: (state, actions) => {
+            carService.createCar(actions.payload)
         },
         deleteCar: (state, actions) => {
             carService.deleteById(actions.payload)
+        },
+        updateCar: (state, actions) => {
+            const {id} = state.carForUpdate
+            carService.updateById(id, actions.payload)
+        },
+        setCarForUpdate: (state, actions) => {
+            state.carForUpdate = actions.payload
+
         }
     }
 });
