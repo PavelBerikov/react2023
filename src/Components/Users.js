@@ -3,12 +3,18 @@ import {useDispatch, useSelector} from "react-redux";
 import {usersService} from "../services";
 import {usersActions} from "../redux";
 import {useForm} from "react-hook-form";
+import {User} from "./User";
 
 const Users = () => {
+    const {users} = useSelector(state => state.users);
     const {register, handleSubmit} = useForm();
     const dispatch = useDispatch();
-    const save =async (user) => {
-        const {data} = await  dispatch(usersActions.createNewUser(user));
+    useEffect(() => {
+        usersService.getAll().then(value => value.data).then(value => dispatch(usersActions.setAllUsers(value)))
+    }, [])
+    const save =/*async*/ (user) => {
+        dispatch(usersActions.createNewUser(user))
+        /*const {data} = await  dispatch(usersActions.createNewUser(user));*/
     };
     return (
         <>
@@ -18,6 +24,9 @@ const Users = () => {
                 <input type={'text'} placeholder={'email'} {...register('email')}/>
                 <button>Save</button>
             </form>
+            {
+                users.map(user => <User key={user.id} user={user}/>)
+            }
 
         </>
     );
