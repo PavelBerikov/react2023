@@ -21,6 +21,7 @@ const slice = createSlice({
         updateCar: (state, actions) => {
             const {id} = state.carForUpdate
             carService.updateById(id, actions.payload)
+            state.carForUpdate = null
         },
         setCarForUpdate: (state, actions) => {
             state.carForUpdate = actions.payload
