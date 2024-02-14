@@ -12,9 +12,8 @@ const Users = () => {
     useEffect(() => {
         usersService.getAll().then(value => value.data).then(value => dispatch(usersActions.setAllUsers(value)))
     }, [])
-    const save =/*async*/ (user) => {
+    const save =(user) => {
         dispatch(usersActions.createNewUser(user))
-        /*const {data} = await  dispatch(usersActions.createNewUser(user));*/
     };
     return (
         <>
