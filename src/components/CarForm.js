@@ -21,7 +21,9 @@ const CarForm = () => {
         reset()
     };
     const update = (car) => {
-
+        const ind = carForUpdate.id
+        dispatch(carsActions.updater({id: carForUpdate.id, car}))
+        reset()
     };
     return (
         <>

@@ -4,11 +4,11 @@ import {carsActions} from "../redux";
 import {Car} from "./Car";
 
 const Cars = () => {
-    const {cars} = useSelector(state => state.cars);
+    const {cars, trigger} = useSelector(state => state.cars);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(carsActions.getAll())
-    }, [cars])
+    }, [trigger])
     return (
         <div>
             {

@@ -10,7 +10,7 @@ const Car = ({car}) => {
             <div>{id} - {brand}</div>
             <div>Price- {price}</div>
             <div>Year - {year}</div>
-            <button>Delete</button> <button onClick={() => dispatch(carsActions.setCarForUpdate(car))}>Update</button>
+            <button onClick={() => dispatch(carsActions.deleter(id))}>Delete</button> <button onClick={() => dispatch(carsActions.setCarForUpdate(car))}>Update</button>
             <hr/>
         </div>
     );
