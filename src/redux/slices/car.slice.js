@@ -5,7 +5,7 @@ let initialState = {
     cars: [],
     carForUpdate: null,
     error: null,
-    loading: false,
+    loading: null,
     trigger: null
 };
 
@@ -62,18 +62,22 @@ const slice = createSlice({
     extraReducers: builder =>
         builder.addCase(getAll.fulfilled, (state, action) => {
             state.cars = action.payload
-            state.loading = false
+            state.loading = null
         })
-            .addCase(updater.fulfilled, state => {
-                state.carForUpdate = null
-                state.loading = false
+            .addMatcher(isPending(), state => {
+                state.loading = !state.loading
+            })
+            .addMatcher(isRejectedWithValue(), (state, action) => {
+                state.error = action.payload
+                state.loading = null
             })
             .addMatcher(isFulfilled(), state => {
-                state.trigger = !state.trigger
-                state.loading = false
+                state.loading = null
+                state.error = null
+                state.carForUpdate = null
             })
-            .addMatcher(isPending(), state => {
-                state.loading = true
+            .addMatcher(isFulfilled(updater, create, deleter), state => {
+                state.trigger = !state.trigger
             })
 });
 const {reducer: carsReducers, actions} = slice;
