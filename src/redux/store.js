@@ -1,11 +1,11 @@
 import {combineReducers} from "redux";
 import {configureStore} from "@reduxjs/toolkit";
-import {charactersReducer, episodesReducer, queryReducer} from "./slices";
+import {charactersReducer, episodesReducer, paginationReducer} from "./slices";
 
 const rootReducer = combineReducers({
     characters: charactersReducer,
     episodes: episodesReducer,
-    query: queryReducer
+    pagination: paginationReducer
 });
 
 const setupStore = () => configureStore({

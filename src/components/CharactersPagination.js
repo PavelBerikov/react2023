@@ -3,15 +3,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {useSearchParams} from "react-router-dom";
 
 const CharactersPagination = () => {
-    const { page } = useSelector(state => state.query);
-    const dispatch = useDispatch();
-
+    const {prevPage, nextPage} = useSelector(state => state.characters);
+    const [_,setQuery] = useSearchParams();
     const prev = () => {
-        dispatch(setPage(+page - 1));
+        setQuery(prev1 => ({...prev1, page: +prev1.get('page') - 1}))
     };
-
     const next = () => {
-        dispatch(setPage(+page + 1));
+        setQuery(prev1 => ({...prev1, page: +prev1.get('page') + 1}))
     };
     return (
         <div>

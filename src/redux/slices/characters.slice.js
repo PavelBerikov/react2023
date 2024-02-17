@@ -3,8 +3,8 @@ import {characterService} from "../../services";
 
 let initialState = {
     characters: [],
-    /*prevPage: null,
-    nextPage: null*/
+    prevPage: null,
+    nextPage: null
 };
 
 const getAll = createAsyncThunk(
@@ -22,7 +22,14 @@ const getAll = createAsyncThunk(
 const slice = createSlice({
     name: 'charactersSlice',
     initialState,
-    reducers:{},
+    reducers:{
+        setCharacters: (state, actions) => {
+            const {results, info:{prev, next}} = actions.payload
+            state.characters = results
+            state.prevPage = prev
+            state.nextPage = next
+        }
+    },
     extraReducers: builder =>
         builder.addCase(getAll.fulfilled, (state, action) => {
             const {results, info:{prev, next}} = action.payload

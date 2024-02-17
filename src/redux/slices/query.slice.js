@@ -1,23 +1,21 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-
 let initialState = {
-    query: new URLSearchParams(window.location.search)
+    startPage: 1
 };
 const slice = createSlice({
-    name: 'querySlice',
+    name: 'paginationSlice',
     initialState,
-    reducers:{
-        setPage: (state, action) => {
-            state.query.set('page', action.payload)
-    }
-}});
+    reducers: {
 
-const {reducer: queryReducer, actions} = slice;
-const queryActions = {
+    }
+});
+
+const {reducer: paginationReducer, actions} = slice;
+const paginationActions = {
     ...actions
 };
 
 export {
-    queryReducer, queryActions
+    paginationActions, paginationReducer
 };
