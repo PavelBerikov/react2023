@@ -3,8 +3,8 @@ import {characterService} from "../../services";
 
 let initialState = {
     characters: [],
-    prevPage: null,
-    nextPage: null
+    /*prevPage: null,
+    nextPage: null*/
 };
 
 const getAll = createAsyncThunk(
