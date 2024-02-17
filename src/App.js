@@ -1,11 +1,13 @@
 import React from 'react';
+import {Characters, CharactersPagination} from "./components";
 
 const App = () => {
     return (
         <div>
-            app
+            <Characters/>
+            <CharactersPagination/>
         </div>
     );
 };
 
-export default App;
+export {App};
