@@ -1,7 +1,6 @@
 import React from 'react';
-import {Home} from "./Components";
 import {Route, Routes} from "react-router-dom";
-import {Cars, Comments, Users} from "./Components";
+import {Cars, Comments, Home, Users} from "./components";
 
 const App = () => {
     return (
