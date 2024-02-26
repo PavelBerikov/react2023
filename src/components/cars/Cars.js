@@ -12,7 +12,7 @@ const Cars = () => {
         carService.getAll()
             .then(value => value.data)
             .then(value => dispatch(carActions.setCars(value)))
-    }, [trigger])
+    }, [trigger, dispatch])
 
     return (
 

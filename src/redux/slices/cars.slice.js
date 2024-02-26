@@ -12,7 +12,7 @@ let slice = createSlice({
     reducers:{
         setCars: (state, actions) => {
             state.cars = actions.payload
-            state.trigger = !state.trigger
+            state.trigger = true
         },
         addCars: (state, actions) => {
             carService.createCar(actions.payload)
