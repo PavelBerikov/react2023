@@ -20,7 +20,7 @@ const Cars = () => {
         carService.getAll()
             .then(value => value.data)
             .then(value => dispatch(carsActions.setCars(value)))
-    }, [])
+    }, [cars, dispatch])
     const create = async (car) => {
         await dispatch(carsActions.createNewCar(car))
         reset()
